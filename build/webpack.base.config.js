@@ -13,7 +13,7 @@ module.exports = {
    * efficiently build out the application's dependency tree.
    */
   entry: {
-    app: "./src/main.tsx"
+    app: "./src/index.tsx"
   },
 
   /*
