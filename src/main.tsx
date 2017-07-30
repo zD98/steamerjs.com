@@ -5,6 +5,8 @@ import Kit from './components/kitpage'
 import Plat from './components/platpage'
 import Footer from './components/footer'
 
+import './main.less'
+
 export default class Main extends React.Component<{}, {}> {
     render() {
         return (

@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import './card.less'
+
 interface CardProps {
     name: string
     desc: string
@@ -12,18 +14,18 @@ export default class Card extends React.Component<CardProps, {}> {
         const { name, desc, docLink, link } = this.props
 
         return (
-            <div>
+            <div className="card">
                 <a href={link} target="blank">
-                    <div>
+                    <div className="name">
                         {name}
                     </div>
-                    <p>
+                    <p className="desc">
                         {desc}
                     </p>
                 </a>
-                <div>
-                    <div>命令</div>
-                    <div>
+                <div className="meta">
+                    <div className="command">命令</div>
+                    <div className="doc">
                         <a href={docLink} target="blank">
                             文档
                         </a>

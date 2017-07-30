@@ -47,7 +47,7 @@ export default class Group extends React.Component<GroupProps, GroupState> {
     render() {
         const { options, onChange } = this.props
         return (
-            <div>
+            <div className="radio-group">
                 {options.map(this.renderRadios)}
             </div>
         )

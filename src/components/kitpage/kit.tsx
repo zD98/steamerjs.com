@@ -1,4 +1,5 @@
 import * as React from 'react'
+import './kit.less'
 
 import { Radio, Group as RadioGroup } from '../radio'
 
@@ -41,7 +42,8 @@ export default class Kit extends React.Component<{}, KitState> {
     }
     render() {
         return (
-            <section>
+            <section className="kit">
+                <h2>Steamer Command Introduction</h2>
                 <RadioGroup
                     options={projects}
                     onChange={this.handleFrameChange}
@@ -50,7 +52,7 @@ export default class Kit extends React.Component<{}, KitState> {
                     options={frames}
                     onChange={this.handleFrameChange}
                 />
-                <div>
+                <div className="kit-command">
                     <span>{this.state.command}</span>
                 </div>
             </section>

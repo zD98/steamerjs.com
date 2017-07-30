@@ -1,6 +1,8 @@
 import * as React from 'react'
 import Card from '../card'
 
+import './platform.less'
+
 interface CardProps {
     name: string
     desc: string
@@ -28,7 +30,6 @@ const platforms: Array<CardProps> = [
         docLink: ''
     }
 ]
-
 interface PlatState {
     command: string
 }
@@ -46,9 +47,9 @@ export default class Plat extends React.Component<{}, PlatState> {
     }
     render() {
         return (
-            <div>
-                <div>开发平台</div>
-                <div>
+            <div className="platform">
+                <h2>开发平台</h2>
+                <div className="cards">
                     {platforms.map(this.renderCard)}
                 </div>
                 <div>
