@@ -1,23 +1,39 @@
 .home {
-    background: #fff;
+    background: #243140;
+    // background: #fff;
     padding: 0 16px;
     text-align: center;
+    color: #fff;
+
     .wrap {
-        display: flex;
-        justify-content: center;
+        // display: flex;
+        // justify-content: center;
         padding: 48px;
         position: relative;
-        top: 50%;
+        top: 45%;
         transform: translateY(-50%);
     }
     .home-pic {
-        width: 480px;
-        height: 320px;
-        border: 1px solid #ccc;
+        
+        width: 450px;
+        height: 80px;
+        margin: 0 auto;
+        margin-bottom: 80px;
         border-radius: 4px;
-        margin-left: -120px;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-image: url('../../assets/steamer-light.png');
     }
     .home-intro {
-        margin-left: 240px;
+        h2 {
+            span {
+                font-size: 1.5em;
+                color: #c85550;
+            }
+        }
+        p {
+            margin: 16px 0;
+        }
+
     }
 }

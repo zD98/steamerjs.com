@@ -43,11 +43,13 @@ export default class Kit extends React.Component<{}, KitState> {
     render() {
         return (
             <section className="kit">
-                <h2>Steamer Command Introduction</h2>
+                <h2>脚手架指引</h2>
+                <p className="group-title">开发选择</p>
                 <RadioGroup
                     options={projects}
                     onChange={this.handleFrameChange}
                 />
+                <p className="group-title">框架选择</p>
                 <RadioGroup
                     options={frames}
                     onChange={this.handleFrameChange}

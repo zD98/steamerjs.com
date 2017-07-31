@@ -1,16 +1,16 @@
 .radio {
     display: inline-block;
 
-    border: 1px solid #fff;
+    border: 1px solid #243140;
     text-align: center;
     padding: 4px 8px;
     border-radius: 2px;
-    color: #fff;
+    color: #243140;
     cursor: pointer;
 
     &.selected {
-        background-color: rgba(203,53,59,0.85);
-        border-color: rgba(203,53,59,0.85);
+        background-color: #c85550;
+        border-color: #c85550;
         color: #fff;
 
         // color: rgba(203, 53, 59, 0.85);
@@ -19,9 +19,12 @@
 
 .radio-group {
     width: 100%;
-    padding: 1em 0;
+    padding: 2em 0;
     text-align: center;
     .radio {
         margin-right: 2em;
+        &:last-child {
+            margin-right: 0;
+        }
     }
 }

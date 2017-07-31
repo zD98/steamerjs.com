@@ -7,7 +7,7 @@ export default class Header extends React.Component {
 
         return (
         <header className="header">
-            <span className="logo">Steamer前端开发体系</span>
+            <a href="/" className="logo" title="Steamer前端开发体系">Steamer前端开发体系</a>
             <ul className="header-nav">
                 <li className="nav-item"><a href="/" target="blank">文档</a></li>
                 <li className="nav-item"><a href="/">情景</a></li>
