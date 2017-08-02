@@ -24,11 +24,11 @@ export default class Card extends React.Component<CardProps, {}> {
                     </p>
                 </a>
                 <div className="meta">
-                    <div className="meta-btn command">
+                    {/* <div className="meta-btn command">
                         <a href=":;" >
                             命令
                         </a>
-                    </div>
+                    </div> */}
                     <div className="meta-btn doc">
                         <a href={docLink} target="blank">
                             文档

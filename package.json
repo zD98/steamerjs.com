@@ -10,7 +10,7 @@
     "build": "node build/build.js"
   },
   "keywords": [
-      "steamerjs",
+    "steamerjs",
     "react",
     "typescript",
     "webpack"

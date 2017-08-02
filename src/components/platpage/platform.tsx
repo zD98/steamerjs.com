@@ -14,38 +14,20 @@ const platforms: Array<CardProps> = [
     {
         name: 'JB',
         desc: '测试部署系统',
-        link: '',
-        docLink: ''
+        link: '//jb.oa.com/',
+        docLink: '//steamer.oa.com/docs/docs/Steamer-Plugin-JB.html'
     },
     {
         name: 'Ak',
-        desc: '测试部署系统',
-        link: '',
-        docLink: ''
+        desc: '离线包部署平台',
+        link: '//ak.oa.com/',
+        docLink: '//steamer.oa.com/docs/docs/Steamer-Plugin-AK.html'
     },
     {
-        name: 'Linkstar',
-        desc: '测试部署系统',
-        link: '',
-        docLink: ''
-    },
-    {
-        name: 'Linkstar',
-        desc: '测试部署系统',
-        link: '',
-        docLink: ''
-    },
-    {
-        name: 'Linkstar',
-        desc: '测试部署系统',
-        link: '',
-        docLink: ''
-    },
-    {
-        name: 'Linkstar',
-        desc: '测试部署系统',
-        link: '',
-        docLink: ''
+        name: 'AlloyStore',
+        desc: '组件平台',
+        link: '//alloystore.oa.com/',
+        docLink: '//steamer.oa.com/docs/docs/Steamer-Plugin-Alloystore.html'
     }
 ]
 interface PlatState {
@@ -67,13 +49,13 @@ export default class Plat extends React.Component<{}, PlatState> {
         return (
             <div className="platform">
                 <h2>开发平台</h2>
-                <div className="cards">
-                    {platforms.map(this.renderCard)}
-                </div>
                 <div>
                     <span>
                         {this.state.command}
                     </span>
+                </div>
+                <div className="cards">
+                    {platforms.map(this.renderCard)}
                 </div>
             </div>
         )
