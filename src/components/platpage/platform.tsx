@@ -28,6 +28,24 @@ const platforms: Array<CardProps> = [
         desc: '测试部署系统',
         link: '',
         docLink: ''
+    },
+    {
+        name: 'Linkstar',
+        desc: '测试部署系统',
+        link: '',
+        docLink: ''
+    },
+    {
+        name: 'Linkstar',
+        desc: '测试部署系统',
+        link: '',
+        docLink: ''
+    },
+    {
+        name: 'Linkstar',
+        desc: '测试部署系统',
+        link: '',
+        docLink: ''
     }
 ]
 interface PlatState {

@@ -1,15 +1,19 @@
 .card {
-
     width: 120px;
-    border: 1px solid #fff;
+    // border: 1px solid #fff;
     border-radius: 4px;
-    padding: 16px 4px;
+    padding: 20px 10px 20px;
     margin: 12px;
     color: #fff;
+    background: #374c63;
+    &:hover {
+        background: #c85550;
+    }
     a {
         text-decoration: none;
         color: #fff;
-        &:active, &:visited{
+        &:active,
+        &:visited {
             color: #fff;
         }
     }
@@ -19,16 +23,18 @@
         border-radius: 40px;
         text-align: center;
         line-height: 80px;
-        background: #c85550;
-        color: #fff;
+        // background: #c85550;
+        background: #fff;
+        color: #243140;
         font-weight: 700;
         font-size: 18px;
         margin: 0 auto;
+        
     }
 
     .desc {
         text-align: center;
-        padding: 16px 0;
+        padding: 16px 0 28px;
     }
 
     .meta {
@@ -36,11 +42,25 @@
         flex-direction: row;
         justify-content: space-around;
 
-        .command {
+        .meta-btn {
+            background: #fff;
+            padding: 2px 6px;
+            border-radius: 2px;
+            color: #243140;
+            border: 1px solid #fff;
+            a {
+                color: #243140;
+            }
 
+            &:hover {
+                background: #243140;
+                a {
+                    color: #fff;
+                }
+                border-color: #243140;
+            }
         }
         .doc {
-
         }
     }
 }

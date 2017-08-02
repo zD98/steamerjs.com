@@ -8,7 +8,8 @@ interface RadioProp {
 
 interface GroupProps {
     options: Array<RadioProp>
-    onChange: Function
+    onChange: Function,
+    value: string
 }
 
 interface GroupState {
@@ -19,7 +20,7 @@ export default class Group extends React.Component<GroupProps, GroupState> {
     constructor(props: GroupProps) {
         super(props)
         this.state = {
-            curValue: ''
+            curValue: this.props.value
         }
         this.handleClick = this.handleClick.bind(this)
         this.renderRadios = this.renderRadios.bind(this)

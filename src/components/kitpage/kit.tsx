@@ -47,11 +47,13 @@ export default class Kit extends React.Component<{}, KitState> {
                 <p className="group-title">开发选择</p>
                 <RadioGroup
                     options={projects}
+                    value="project"
                     onChange={this.handleFrameChange}
                 />
                 <p className="group-title">框架选择</p>
                 <RadioGroup
                     options={frames}
+                    value="react"
                     onChange={this.handleFrameChange}
                 />
                 <div className="kit-command">
