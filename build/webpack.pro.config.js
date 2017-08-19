@@ -9,9 +9,9 @@ var CopyWebpackPlugin = require("copy-webpack-plugin");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var OptimizeCSSPlugin = require("optimize-css-assets-webpack-plugin");
-
+var HtmlResWebpackPlugin = require('html-res-webpack-plugin');
 var env = config.build.env;
-
+var i=0,k = 0,z=1;
 var webpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: [
@@ -73,7 +73,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       compress: {
         warnings: false
       },
-      sourceMap: true
+      sourceMap: false
     }),
     // extract css into its own file
     new ExtractTextPlugin({
@@ -89,29 +89,56 @@ var webpackConfig = merge(baseWebpackConfig, {
     // generate dist index.html with correct asset hash for caching.
     // you can customize output by editing /index.html
     // see https://github.com/ampedandwired/html-webpack-plugin
-    new HtmlWebpackPlugin({
+    new HtmlResWebpackPlugin({
+      mode: 'html',
       filename: config.build.index,
       template: "index.html",
       inject: true,
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeAttributeQuotes: true
-        // more options:
-        // https://github.com/kangax/html-minifier#options-quick-reference
-      },
+      chunks: 
+        {
+          'app.js':{}
+        }
+      
+      // minify: {
+      //   removeComments: true,
+      //   collapseWhitespace: true,
+      //   removeAttributeQuotes: true
+      //   // more options:
+      //   // https://github.com/kangax/html-minifier#options-quick-reference
+      // },
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-      chunksSortMode: "dependency"
+      // chunksSortMode: "dependency"
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: "vendor",
+      minChunks: function(module, count) {
+        return (
+          module.resource &&
+          /\.js$/.test(module.resource) &&
+          module.resource.indexOf(path.join(__dirname, "../node_modules/") === 0&&++z)
+          )
+      }
     }),
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({
-      name: "vendor",
+      name: "react",
       minChunks: function(module, count) {
         // any required modules inside node_modules are extracted to vendor
         return (
           module.resource &&
           /\.js$/.test(module.resource) &&
-          module.resource.indexOf(path.join(__dirname, "../node_modules")) === 0
+          module.resource.indexOf(path.join(__dirname, "../node_modules/react")) === 0
+        );
+      }
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: "react-dom",
+      minChunks: function(module, count) {
+        // any required modules inside node_modules are extracted to vendor
+        return (
+          module.resource &&
+          /\.js$/.test(module.resource) &&
+          module.resource.indexOf(path.join(__dirname, "../node_modules/react-dom/")) === 0
         );
       }
     }),
@@ -119,7 +146,8 @@ var webpackConfig = merge(baseWebpackConfig, {
     // prevent vendor hash from being updated whenever app bundle is updated
     new webpack.optimize.CommonsChunkPlugin({
       name: "manifest",
-      chunks: ["vendor"]
+      // 只有vendor中引入的包才会做manifest
+      chunks: ["vendor", "react", "react-dom"]
     })
     // copy custom static assets
     // new CopyWebpackPlugin([
