@@ -22,17 +22,16 @@ export default class Kit extends React.Component<{}, KitState> {
     constructor(props: {}) {
         super(props)
         this.state = {
-            project: '',
-            frame: '',
+            project: 'project',
+            frame: 'react',
             command: 'npm install steamer'
         }
         this.handleFrameChange = this.handleFrameChange.bind(this)
         this.handleProjectChange = this.handleProjectChange.bind(this)
     }
     handleProjectChange(value: string) {
-        this.setState({
-            project: value
-        })
+        console.log(value)
+        this.setState({ project: value })
     }
 
     handleFrameChange(value: string) {
@@ -41,6 +40,10 @@ export default class Kit extends React.Component<{}, KitState> {
         })
     }
     render() {
+        let frame = this.state.frame
+        let way = `steamer-${frame}` + ( this.state.project === 'project' ? '' : `-component` ) 
+        let command = `npm i -g ${way}`
+
         return (
             <section className="kit">
                 <h2>脚手架指引</h2>
@@ -48,7 +51,7 @@ export default class Kit extends React.Component<{}, KitState> {
                 <RadioGroup
                     options={projects}
                     value="project"
-                    onChange={this.handleFrameChange}
+                    onChange={this.handleProjectChange}
                 />
                 <p className="group-title">框架选择</p>
                 <RadioGroup
@@ -57,7 +60,7 @@ export default class Kit extends React.Component<{}, KitState> {
                     onChange={this.handleFrameChange}
                 />
                 <div className="kit-command">
-                    <span>{this.state.command}</span>
+                    <span>{command}</span>
                 </div>
             </section>
         )
